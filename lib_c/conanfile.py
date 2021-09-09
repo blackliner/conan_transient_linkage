@@ -4,8 +4,8 @@ from conans import ConanFile, CMake, tools
 class LibCConan(ConanFile):
     name = "lib_c"
     version = "1.0.0"
-    
-    exports_sources = "src/**"
+
+    exports_sources = ["CMakeLists.txt", "src/**"]
     settings = "os", "compiler", "build_type", "arch"
     options = {
         "shared": [True, False],
@@ -18,7 +18,7 @@ class LibCConan(ConanFile):
         "with_tests": True,
         "catch2:with_main": True,
     }
-    generators = "cmake_find_package"
+    generators = "cmake_find_package", "cmake"
 
     _cmake = None
 
@@ -41,7 +41,7 @@ class LibCConan(ConanFile):
 
         self._cmake.definitions["BUILD_TESTING"] = self.options.with_tests
 
-        self._cmake.configure(source_folder="src")
+        self._cmake.configure(source_folder=self.source_folder)
         return self._cmake
 
     def build(self):
