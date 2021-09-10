@@ -44,7 +44,7 @@ class LibAConan(ConanFile):
 
         self._cmake.definitions["BUILD_TESTING"] = self.options.with_tests
 
-        self._cmake.configure(source_folder=self.source_folder)
+        self._cmake.configure()
         return self._cmake
 
     def build(self):
