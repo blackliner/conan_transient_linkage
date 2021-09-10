@@ -4,7 +4,7 @@
 
 int main()
 {
-  std::cout << lum::SayHello() << "\n";
+  std::cout << lum::lib_c::SayHello() << "\n";
   std::cout << "SUCCESS\n";
   return EXIT_SUCCESS;
 }
