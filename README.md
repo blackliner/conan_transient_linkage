@@ -1,4 +1,6 @@
 # conan_transient_linkage
+https://github.com/conan-io/conan/issues/9600
+
 reproduce an error when building shared libs
 
 run build.sh to get this:
